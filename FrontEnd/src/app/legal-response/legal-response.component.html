@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <h3 class="text-light">AS</h3>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data- target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Togglenavigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse ml-5" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+
+                <a class="nav-link" href="/user/{{userName}}"><i class="fa fa-home"></i> Inicio <span
+                        class="sr-only">(current)</span></a>
+
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="bi bi-clipboard-data"></i> Solicitudes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/respuestaLegal/{{userName}}"><i class="bi bi-clipboard-check"></i> Ver Solicitudes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/request/{{userName}}"><i class="bi bi-clipboard"></i> Llenar Solicitud</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href=""><i class="bi bi-file-earmark-text-fill"></i> Reportes <span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href=""><i class="bi bi-box"></i> Cubo <span class="sr-only"></span></a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav justify-content-end mr-5">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-fill"></i>
+                    {{userName}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#"><i class="bi bi-arrow-left-square-fill"></i> Cerrar Sesión</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+
+<table class="table" *ngIf="registroSolicitudes[0]">
+    <tr>
+
+        <th>Solicitante</th>
+        <th>Evidencia Archivo</th>
+        <th>Detalle</th>
+        <th>Acciones</th>
+
+    </tr>
+
+    <tr *ngFor="let item of registroSolicitudes">
+
+        <td>{{item.linea}}</td>
+        <td>{{item.evidenciaArchivo1}}</td>
+        <td>{{item.detalle1}}</td>
+        <td><button class="btn btn-primary" (click)="replica(item.idBoleta)"><i class="fa fa-reply" aria-hidden="true"></i> Responder</button></td>
+
+    </tr>
+</table>
+<footer class="bg-dark text-center text-white" style="margin-top: 282px;">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 - Automatización de Solicitudes
+    </div>
+    <!-- Copyright -->
+</footer>

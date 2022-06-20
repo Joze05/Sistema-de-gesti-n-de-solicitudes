@@ -1,0 +1,36 @@
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <form class="form-signin" novalidate="">
+
+        <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesion</h1>
+        <label for="inputEmail" class="sr-only">Correo</label>
+        <input type="email" name="inputEmail" class="form-control" placeholder="Email address" autofocus="" required [(ngModel)]="user.correo" name="correo" #correo="ngModel">
+        <div [hidden]="correo.valid || correo.pristine" class="alert alert-danger">
+            <div *ngIf="correo.errors?.required">
+              Este campo es requerido.
+            </div>
+            <div *ngIf="correo.errors?.email">
+                Ingrese un correo válido.
+              </div>
+        </div>
+        <label for="inputPassword" class="sr-only">Contrase&ntilde;a</label>
+
+        <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="user.password" name="password" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <div *ngIf="name.errors?.required">
+              Este campo es requerido.
+            </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Iniciar</button>
+    </form>
+</div>
+<footer class="bg-dark text-center text-white" style="margin-top: 277px;">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 - Automatización de Solicitudes
+  </div>
+  <!-- Copyright -->
+</footer>
